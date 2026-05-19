@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bolt Courier — Earnings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="bolt-mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 2 4 14h6l-2 8 10-12h-6l2-8z" fill="#34D186"/>
+        </svg>
+        <span class="brand-name">Bolt</span>
+        <span class="brand-sub">Courier</span>
+      </div>
+      <nav class="nav">
+        <a class="nav-item">Home</a>
+        <a class="nav-item active">Earnings</a>
+        <a class="nav-item">Trips</a>
+        <a class="nav-item">Schedule</a>
+        <a class="nav-item">Account</a>
+      </nav>
+      <div class="user">
+        <div class="avatar">JM</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="header-row">
+        <div>
+          <h1>Earnings</h1>
+          <p class="subtitle">Track your income across periods</p>
+        </div>
+        <div class="period-toggle" role="tablist">
+          <button class="period-btn" data-period="today">Today</button>
+          <button class="period-btn active" data-period="week">This week</button>
+          <button class="period-btn" data-period="month">This month</button>
+          <button class="period-btn" data-period="year">This year</button>
+        </div>
+      </div>
+
+      <section class="stats">
+        <div class="stat-card">
+          <div class="stat-label">
+            <span class="dot"></span>
+            Net income
+          </div>
+          <div class="stat-value" id="net-income">€0.00</div>
+          <div class="stat-meta">
+            <span class="trend up" id="net-trend">▲ 0%</span>
+            <span class="muted" id="net-compare">vs previous period</span>
+          </div>
+          <div class="stat-secondary" id="gross-income">Gross €0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">
+            <span class="dot dot-alt"></span>
+            Avg. net / hour
+          </div>
+          <div class="stat-value" id="avg-hour">€0.00</div>
+          <div class="stat-meta">
+            <span class="muted" id="hours-online">0h online</span>
+          </div>
+        </div>
+        <div class="stat-card slim">
+          <div class="stat-label">Trips</div>
+          <div class="stat-value small" id="trip-count">0</div>
+          <div class="stat-meta">
+            <span class="muted" id="tip-total">€0.00 in tips</span>
+          </div>
+        </div>
+        <div class="stat-card slim">
+          <div class="stat-label">Distance</div>
+          <div class="stat-value small" id="distance">0 km</div>
+          <div class="stat-meta">
+            <span class="muted">Driven on platform</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-card">
+        <div class="chart-head">
+          <div class="chart-head-left">
+            <h2>Earnings breakdown</h2>
+            <div class="chart-nav">
+              <button class="nav-arrow" id="prev-period" aria-label="Previous period">‹</button>
+              <p class="subtitle chart-period-label" id="chart-subtitle">Net earnings by day · This week</p>
+              <button class="nav-arrow" id="next-period" aria-label="Next period" disabled>›</button>
+            </div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><span class="swatch swatch-fare"></span>Fares</div>
+            <div class="legend-item"><span class="swatch swatch-tip"></span>Tips</div>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="earnings-chart"></canvas>
+        </div>
+      </section>
+
+      <section class="tx-card">
+        <div class="tx-head">
+          <h2>Recent trips</h2>
+          <a class="link" href="#">View all →</a>
+        </div>
+        <div class="tx-cols">
+          <div></div>
+          <div>Trip</div>
+          <div>Route</div>
+          <div class="right">Distance</div>
+          <div class="right">Net</div>
+        </div>
+        <div class="tx-list" id="tx-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
