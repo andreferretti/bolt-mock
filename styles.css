@@ -451,3 +451,38 @@ h2 {
   color: var(--accent);
   margin-top: 2px;
 }
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 28px 0 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-link:hover { text-decoration: underline; }
+
+.footer-qr {
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  line-height: 0;
+}
+
+.footer-qr img { display: block; }
