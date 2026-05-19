@@ -499,3 +499,12 @@ h2 {
 }
 
 .footer-link:hover { text-decoration: underline; }
+
+.footer-qr {
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 8px;
+  line-height: 0;
+}
+
+.footer-qr img { display: block; }
