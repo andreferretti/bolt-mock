@@ -31,6 +31,28 @@ html, body {
   flex-direction: column;
 }
 
+.mobile-block { display: none; }
+
+@media (max-width: 899px) {
+  .app { display: none; }
+  .mobile-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 100vh;
+    padding: 24px;
+    text-align: center;
+  }
+  .mobile-block p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+  }
+}
+
 /* Topbar */
 .topbar {
   display: flex;
